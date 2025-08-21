@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rock · Paper · Scissors — Modern</title>
+    <meta name="description" content="A modern Rock–Paper–Scissors game with themes." />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="theme-neon">
+    <div class="container">
+        <header class="header">
+            <div class="title">
+                <span class="brand">Rock · Paper · Scissors</span>
+                <span class="sep">|</span>
+                <span class="who">Modern</span>
+            </div>
+            <div class="actions">
+                <button id="themeBtn" class="chip" type="button" aria-label="Change theme">🎨 Theme: Neon</button>
+                <button id="resetBtn" class="chip" type="button">↺ Reset score</button>
+            </div>
+        </header>
+
+        <!-- Scoreboard -->
+        <section class="scoreboard">
+            <div class="card panel" id="youPanel">
+                <div class="who">You</div>
+                <div class="score" id="playerScore">0</div>
+                <div class="badge">Player</div>
+            </div>
+
+            <div class="vs">
+                <div class="ring">
+                    <div class="txt">VS</div>
+                </div>
+                <div class="last-moves">
+                    <span id="youMove">—</span>
+                    <span style="opacity:.5; margin: 0 6px">vs</span>
+                    <span id="cpuMove">—</span>
+                </div>
+            </div>
+
+            <div class="card panel" id="cpuPanel">
+                <div class="who">CPU</div>
+                <div class="score" id="cpuScore">0</div>
+                <div class="badge">Bot</div>
+            </div>
+        </section>
+
+        <!-- Choices -->
+        <section class="choices">
+            <button class="choice-btn card" data-move="rock" aria-label="Rock (R)">
+                <div class="choice-icon" aria-hidden="true">✊</div>
+                <div class="choice-label">Rock</div>
+            </button>
+
+            <button class="choice-btn card" data-move="paper" aria-label="Paper (P)">
+                <div class="choice-icon" aria-hidden="true">✋</div>
+                <div class="choice-label">Paper</div>
+            </button>
+
+            <button class="choice-btn card" data-move="scissors" aria-label="Scissors (S)">
+                <div class="choice-icon" aria-hidden="true">✌️</div>
+                <div class="choice-label">Scissors</div>
+            </button>
+        </section>
+
+        <!-- Result -->
+        <section class="card result" aria-live="polite" aria-atomic="true">
+            <div id="headline" class="headline">Make your move.</div>
+            <div id="detail" class="detail">Tip: press R, P, or S on your keyboard.</div>
+        </section>
+
+        <!-- Footer -->
+        <section class="card footer">
+            <div style="opacity:.9">Hotkeys:
+                <span class="kbd">R</span>
+                <span class="kbd">P</span>
+                <span class="kbd">S</span>
+            </div>
+            <button id="againBtn" class="btn primary" type="button" title="Play another round">Play again</button>
+            <div class="label">Made With ❤️ By Lokesh Azad</div>
+        </section>
+    </div>
+
+    <!-- Win Modal -->
+    <div id="winModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="winTitle" hidden>
+        <div class="backdrop" data-close></div>
+        <div class="confetti" aria-hidden="true"></div>
+        <div class="modal-card card">
+            <div class="trophy" aria-hidden="true">🏆</div>
+            <h2 id="winTitle" class="win-title">You Win!</h2>
+            <p id="winReason" class="reason">Nice one!</p>
+            <div class="actions">
+                <button id="nextRoundBtn" class="btn primary" type="button">Next Round</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
